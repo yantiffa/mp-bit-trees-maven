@@ -44,11 +44,20 @@ public class BitTreeInteriorNode implements BitTreeNode {
    * @return the value corresponding to the given bits.
    */
   public String get(String bits) {
+    if (bits.length() == 0) {
+      throw new IndexOutOfBoundsException("the bits are empty!");
+    } //if
     // check if we are looking at the right path or the left path
     if (bits.charAt(0) == '0') {
+      if (this.left == null) {
+        throw new IndexOutOfBoundsException("no matching path");
+      } //if
       // go to the left
       return left.get(bits.substring(1));
     } else {
+      if (this.right == null) {
+        throw new IndexOutOfBoundsException("no matching path");
+      } //if
       // go to the right
       return right.get(bits.substring(1));
     } // if
@@ -61,6 +70,9 @@ public class BitTreeInteriorNode implements BitTreeNode {
    * @param value the value I want to be stored at the given node.
    */
   public void set(String bits, String value) {
+    if (bits.length() == 0) {
+      throw new IndexOutOfBoundsException("the bits are not empty!");
+    } //if
     // check for the direction
     if (bits.charAt(0) == '0') { // left
       if (this.left == null) {

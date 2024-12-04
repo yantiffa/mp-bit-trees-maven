@@ -41,7 +41,10 @@ public class BitTreeLeaf implements BitTreeNode {
    *  the path provided
    * @return the String associated with the bits
    */
-  public String get(String bits) {
+  public String get(String bits){
+    if (bits.length() != 0) {
+      throw new IndexOutOfBoundsException("the bits are not empty!");
+    } //if
     return this.value;
   } //get(String)
 
@@ -51,7 +54,10 @@ public class BitTreeLeaf implements BitTreeNode {
    * @param bits
    * @param val
    */
-  public void set(String bits, String value) {
+  public void set(String bits, String value){
+    if (bits.length() != 0) {
+      throw new IndexOutOfBoundsException("the bits are not empty!");
+    } //if
     this.value = value;
   } //set(String, String)
 
@@ -61,6 +67,6 @@ public class BitTreeLeaf implements BitTreeNode {
    * @param pre the string stored in the node before the current the current node.
    */
   public void dump(PrintWriter pen, String pre) {
-    pen.print(pre + ',' + this.value);
+    pen.println(pre + ',' + this.value);
   } //dump(PrintWriter, String)
 } //Class BitTreeLeaf

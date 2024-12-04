@@ -15,6 +15,7 @@ public interface BitTreeNode {
    * 
    * @param bits the path that I would use to find its corresponding value.
    * @return the value corresponding to the given bits.
+   * @throws Exception 
    */
   public String get(String bits);
 
@@ -23,6 +24,7 @@ public interface BitTreeNode {
    * 
    * @param bits the path that I would use to set its corresponding value.
    * @param value the value I want to be stored at the given node.
+ * @throws Exception 
    */
   public void set(String bits, String value);
 

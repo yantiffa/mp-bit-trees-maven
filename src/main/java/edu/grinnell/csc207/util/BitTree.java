@@ -62,7 +62,7 @@ public class BitTree {
     } // if
 
     // check for if the bits contain only 0 and 1
-    if (bits.matches("01")) {
+    if (bits.matches("[01]+")) {
       throw new IndexOutOfBoundsException("Incorrect data!\n");
     } // if
 
@@ -89,7 +89,7 @@ public class BitTree {
     } // if
 
     // check for if the bits contain only 0 and 1
-    if (bits.matches("01")) {
+    if (bits.matches("[01]+")) {
       throw new IndexOutOfBoundsException("Incorrect data!\n");
     } // if
 

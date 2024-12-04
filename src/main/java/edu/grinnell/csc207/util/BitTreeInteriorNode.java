@@ -63,8 +63,22 @@ public class BitTreeInteriorNode implements BitTreeNode {
   public void set(String bits, String value) {
     // check for the direction
     if (bits.charAt(0) == '0') { // left
+      if (this.left == null) {
+        if (bits.length() == 1) {
+          this.left = new BitTreeLeaf(value);
+        } else {
+          this.left = new BitTreeInteriorNode();
+        } // if
+      } // if
       left.set(bits.substring(1), value);
     } else {
+      if (this.right == null) {
+        if (bits.length() == 1) {
+          this.right = new BitTreeLeaf(value);
+        } else {
+          this.right = new BitTreeInteriorNode();
+        } // if
+      } // if
       right.set(bits.substring(1), value);
     } // if
   } // set(String, String)
@@ -78,9 +92,9 @@ public class BitTreeInteriorNode implements BitTreeNode {
   public void dump(PrintWriter pen, String pre) {
     if (this.left != null) {
       this.left.dump(pen, pre + "0");
-    } //if
+    } // if
     if (this.right != null) {
-      this.right.dump(pen, pre + "0");
-    } //if
-  } //dump(PrintWriter, String)
+      this.right.dump(pen, pre + "1");
+    } // if
+  } // dump(PrintWriter, String)
 } // Class BitTreeInteriorNode

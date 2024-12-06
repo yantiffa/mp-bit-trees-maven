@@ -6,11 +6,7 @@ import java.util.Scanner;
 
 /**
  * Trees intended to be used in storing mappings between fixed-length sequences of bits and
- * corresponding values.
- * 
- * 
- * This class is implemented for fall24 CSC207
- * 
+ * corresponding values. This class is implemented for fall24 CSC207
  * @author Tiffany
  */
 public class BitTree {
@@ -18,12 +14,12 @@ public class BitTree {
   // | Fields |
   // +--------+
   /**
-   * the root of the tree
+   * the root of the tree.
    */
   BitTreeNode root;
 
   /**
-   * the depth of the tree
+   * the depth of the tree.
    */
   int depth;
 
@@ -32,8 +28,7 @@ public class BitTree {
   // +--------------+
 
   /**
-   * Create a tree with the provided depth, n
-   * 
+   * Create a tree with the provided depth, n.
    * @param n the depth of the tree
    */
   public BitTree(int n) {
@@ -51,7 +46,6 @@ public class BitTree {
 
   /**
    * Set the value with the given bits path.
-   * 
    * @param bits
    * @param value
    */
@@ -62,7 +56,7 @@ public class BitTree {
     } // if
 
     // check for if the bits contain only 0 and 1
-    if (bits.matches("[01]+")) {
+    if (!bits.matches("[01]+")) {
       throw new IndexOutOfBoundsException("Incorrect data!\n");
     } // if
 
@@ -78,7 +72,6 @@ public class BitTree {
 
   /**
    * Get the value corresponding to the bits.
-   * 
    * @param bits
    * @return a string corresponding to the bits path.
    */
@@ -89,7 +82,7 @@ public class BitTree {
     } // if
 
     // check for if the bits contain only 0 and 1
-    if (bits.matches("[01]+")) {
+    if (!bits.matches("[01]+")) {
       throw new IndexOutOfBoundsException("Incorrect data!\n");
     } // if
 
@@ -102,7 +95,6 @@ public class BitTree {
 
   /**
    * print out the tree by printing nodes one by one in CSV format.
-   * 
    * @param pen
    */
   public void dump(PrintWriter pen) {
@@ -114,6 +106,7 @@ public class BitTree {
 
   /**
    * reads a series of lines of the form bits,value and stores them in the tree.
+   * @param source
    */
   public void load(InputStream source) {
     Scanner eye = new Scanner(source);
@@ -122,7 +115,7 @@ public class BitTree {
       if (input.length() != 0) {
         String[] sections = input.split(",");
         set(sections[0], sections[1]);
-      } //if
-    } //while
+      } // if
+    } // while
   } // load(InputStream)
 } // class BitTree

@@ -4,9 +4,7 @@ import java.io.PrintWriter;
 
 /**
  * This class is for nodes that are not the leaf. It creates the tree structure by linking nodes.
- * 
  * This class is implemented for CSC207 fall 2024.
- * 
  * @author Tiffany Yan
  */
 public class BitTreeInteriorNode implements BitTreeNode {
@@ -38,26 +36,25 @@ public class BitTreeInteriorNode implements BitTreeNode {
   // | Methods |
   // +---------+
   /**
-   * Obtain the value from the provided bits path
-   * 
+   * Obtain the value from the provided bits path.
    * @param bits the path that I would use to find its corresponding value.
    * @return the value corresponding to the given bits.
    */
   public String get(String bits) {
     if (bits.length() == 0) {
       throw new IndexOutOfBoundsException("the bits are empty!");
-    } //if
+    } // if
     // check if we are looking at the right path or the left path
     if (bits.charAt(0) == '0') {
       if (this.left == null) {
         throw new IndexOutOfBoundsException("no matching path");
-      } //if
+      } // if
       // go to the left
       return left.get(bits.substring(1));
     } else {
       if (this.right == null) {
         throw new IndexOutOfBoundsException("no matching path");
-      } //if
+      } // if
       // go to the right
       return right.get(bits.substring(1));
     } // if
@@ -65,14 +62,13 @@ public class BitTreeInteriorNode implements BitTreeNode {
 
   /**
    * Sets the value of the bits path by provided info.
-   * 
    * @param bits the path that I would use to set its corresponding value.
    * @param value the value I want to be stored at the given node.
    */
   public void set(String bits, String value) {
     if (bits.length() == 0) {
       throw new IndexOutOfBoundsException("the bits are not empty!");
-    } //if
+    } // if
     // check for the direction
     if (bits.charAt(0) == '0') { // left
       if (this.left == null) {
@@ -97,7 +93,6 @@ public class BitTreeInteriorNode implements BitTreeNode {
 
   /**
    * Print out the tree in the format of CSV.
-   * 
    * @param pen
    * @param pre the string stored in the node before the current the current node.
    */
